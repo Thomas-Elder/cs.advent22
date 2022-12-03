@@ -3,13 +3,13 @@ using Advent22;
 
 namespace Advent22.Tests
 {
-    public class OneTests
+    public class CalorieCountingTests
     {
-        private readonly One _one;
+        private readonly CalorieCounting _one;
 
-        public OneTests()
+        public CalorieCountingTests()
         {
-            _one = new One();
+            _one = new CalorieCounting();
         }
 
         [Fact]

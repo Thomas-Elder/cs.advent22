@@ -2,7 +2,7 @@
 
 namespace Advent22
 {
-    public class One
+    public class CalorieCounting
     {
         /// <summary>
         /// Returns the maximal sum of caloris in a single block.
