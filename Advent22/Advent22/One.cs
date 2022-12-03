@@ -9,7 +9,7 @@ namespace Advent22
         /// </summary>
         /// 
         /// <returns></returns>
-        public int MaxCalories(string [] lines)
+        public int MaxCalories(string [] lines, int number)
         {
             int [] sums = new int [lines.Length];
             int sum = 0;
@@ -32,7 +32,15 @@ namespace Advent22
                 }
             }
 
-            return sums.Max();
+            Array.Sort(sums);
+            sum = 0;
+
+            for (int i = sums.Length - 1; i > sums.Length - number - 1; i--)
+            {
+                sum += sums[i];
+            }
+
+            return sum;
         }
     }
 }
