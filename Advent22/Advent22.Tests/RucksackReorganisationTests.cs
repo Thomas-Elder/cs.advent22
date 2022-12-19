@@ -25,7 +25,63 @@ namespace Advent22.Tests
             int expected = 157;
 
             // Act
-            var actual = _rucksackReorganisation.SumDuplicateItemPriorities();
+            var actual = _rucksackReorganisation.SumDuplicateItemPriorities(lines);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetPriorities_WhenDictPasseda_Returns1()
+        {
+            // Arrange
+            int expected = 1;
+
+            // Act
+            var dict = _rucksackReorganisation.GetPriorities();
+            var actual = dict['a'];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetPriorities_WhenDictPassedz_Returns26()
+        {
+            // Arrange
+            int expected = 26;
+
+            // Act
+            var dict = _rucksackReorganisation.GetPriorities();
+            var actual = dict['z'];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetPriorities_WhenDictPassedA_Returns27()
+        {
+            // Arrange
+            int expected = 27;
+
+            // Act
+            var dict = _rucksackReorganisation.GetPriorities();
+            var actual = dict['A'];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetPriorities_WhenDictPassedZ_Returns52()
+        {
+            // Arrange
+            int expected = 52;
+
+            // Act
+            var dict = _rucksackReorganisation.GetPriorities();
+            var actual = dict['Z'];
 
             // Assert
             Assert.Equal(expected, actual);
