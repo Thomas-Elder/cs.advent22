@@ -18,7 +18,7 @@ namespace Advent22.Tests
         }
 
         [Fact]
-        public void SumDuplicateItemPriorities__()
+        public void SumDuplicateItemPriorities_WhenPassedTestData_ReturnsExpectedValue()
         {
             // Arrange
             string[] lines = System.IO.File.ReadAllLines(_testData);
