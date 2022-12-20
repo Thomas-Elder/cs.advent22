@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using Advent22;
+using System.Collections.Generic;
 
 namespace Advent22.Tests
 {
@@ -23,6 +24,20 @@ namespace Advent22.Tests
             // Arrange
             string[] lines = System.IO.File.ReadAllLines(_testData);
             int expected = 157;
+
+            // Act
+            var actual = _rucksackReorganisation.SumDuplicateItemPriorities(lines);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void SumDuplicateItemPriorities_WhenPassedData_ReturnsExpectedValue()
+        {
+            // Arrange
+            string[] lines = System.IO.File.ReadAllLines(_data);
+            int expected = 7746;
 
             // Act
             var actual = _rucksackReorganisation.SumDuplicateItemPriorities(lines);
@@ -62,6 +77,24 @@ namespace Advent22.Tests
 
             // Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("abcd",  "ab", "cd")]
+        [InlineData("abcdefgh", "abcd", "efgh")]
+        [InlineData("abcdefghabcdefgh", "abcdefgh", "abcdefgh")]
+        public void GetSubString(string input, string outOne, string outTwo)
+        {
+            // Arrange
+            List<string> expected = new List<string>();
+            expected.Add(outOne);
+            expected.Add(outTwo);
+
+            // Act
+            var actual = _rucksackReorganisation.GetSubString(input);
+
+            // Assert
+            Assert.Equal(expected,actual);
         }
     }
 }

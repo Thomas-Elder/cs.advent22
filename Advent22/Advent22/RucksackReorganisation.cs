@@ -12,12 +12,23 @@ namespace Advent22
         {
             var priorities = GetPriorities();
 
+            int total = 0;
+
             foreach (string line in lines)
             {
+                var compartments = GetSubString(line);
 
+                foreach(char c in compartments.First())
+                {
+                    if (compartments.Last().Contains(c))
+                    {
+                        total += priorities[c];
+                        break;
+                    }
+                }
             }
 
-            return 0;
+            return total;
         }
 
         /// <summary>
@@ -40,6 +51,19 @@ namespace Advent22
             }
 
             return dict;
+        }
+
+        /// <summary>
+        /// Splits the given string in two, returning an enumerable of the two substrings
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public IEnumerable<string> GetSubString(string str)
+        {
+            int subStringLength = str.Length / 2;
+
+            return Enumerable.Range(0, str.Length / subStringLength)
+                        .Select(i => str.Substring(i * subStringLength, subStringLength));
         }
     }
 }
