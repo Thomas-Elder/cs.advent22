@@ -47,6 +47,36 @@ namespace Advent22.Tests
         }
 
         [Fact]
+        public void SumDuplicateItemPrioritiesMultipleLines_WhenPassedTestData_ReturnsExpectedValue()
+        {
+            // Arrange
+            string[] lines = System.IO.File.ReadAllLines(_testData);
+            int numberOfLines = 3;
+            int expected = 70;
+
+            // Act
+            var actual = _rucksackReorganisation.SumDuplicateItemPrioritiesMultipleLines(lines, numberOfLines);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void SumDuplicateItemPrioritiesMultipleLines_WhenPassedData_ReturnsExpectedValue()
+        {
+            // Arrange
+            string[] lines = System.IO.File.ReadAllLines(_data);
+            int numberOfLines = 3;
+            int expected = 2604;
+
+            // Act
+            var actual = _rucksackReorganisation.SumDuplicateItemPrioritiesMultipleLines(lines, numberOfLines);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void GetPriorities_WhenCalled_ReturnsDictionaryLength52()
         {
             // Arrange

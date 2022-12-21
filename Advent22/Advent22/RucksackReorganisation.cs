@@ -32,6 +32,46 @@ namespace Advent22
         }
 
         /// <summary>
+        /// Returns the sum of the priority scores of duplicate items in each line.
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
+        public int SumDuplicateItemPrioritiesMultipleLines(string[] lines, int numberOfLines)
+        {
+            var priorities = GetPriorities();
+
+            int total = 0;
+            int start = 0;
+            int end = start + numberOfLines;
+
+            for (int i = start; i < end; i+=numberOfLines)
+            {
+                string a = lines[i];
+                string b = lines[i + 1];
+                string c = lines[i + 2];
+
+                foreach(char ch in a)
+                {
+                    if (b.Contains(ch) && c.Contains(ch))
+                    {
+                        total += priorities[ch];
+                        break;
+                    }
+                }
+
+                start = end;
+                end = start + numberOfLines;
+
+                if (start >= lines.Length)
+                {
+                    break;
+                }
+            }
+
+            return total;
+        }
+
+        /// <summary>
         /// Returns a dictionary of alphabetical characters and priority values.
         /// </summary>
         /// Lowercase item types a through z have priorities 1 through 26.
